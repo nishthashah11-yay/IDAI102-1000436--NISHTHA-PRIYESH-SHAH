@@ -27,12 +27,12 @@ green_alternatives = {
     "Clothing": ["Organic cotton brands", "Local handloom", "Second-hand clothes"],
     "Electronics": ["Energy Star products", "Refurbished electronics"],
     "Groceries": ["Local farmers market", "Organic groceries"],
-    "Footwear": ["Shoes made from recycled materials", "Vegan leather footwear"],
+    "Footwear": ["Recycled material shoes", "Vegan leather footwear"],
     "Second-hand": ["Thrift stores", "Community swap events"]
 }
 
 eco_tips = [
-    "Buying second-hand reduces carbon emissions significantly.",
+    "Buying second-hand greatly reduces carbon emissions.",
     "Local products usually have a smaller carbon footprint.",
     "Repairing items helps reduce waste.",
     "Eco-friendly choices protect future generations."
@@ -45,7 +45,7 @@ if "purchases" not in st.session_state:
     st.session_state.purchases = []
 
 # ------------------------------------
-# Eco Reward Visual (Turtle Replacement)
+# Visual Reward (Cloud-safe)
 # ------------------------------------
 def eco_reward():
     st.success("🌿 Eco-friendly choice!")
@@ -55,7 +55,7 @@ def eco_reward():
     )
 
 # ------------------------------------
-# App Header
+# Header
 # ------------------------------------
 st.markdown(
     """
@@ -66,7 +66,7 @@ st.markdown(
 )
 
 # ------------------------------------
-# Purchase Input Section
+# Input Section
 # ------------------------------------
 st.subheader("🛒 Log a Purchase")
 
@@ -82,14 +82,14 @@ with col3:
     price = st.number_input("Price ($)", min_value=0.0, step=1.0)
 
 if st.button("Add Purchase"):
-    co2 = price * impact_multiplier[product]
+    co2_impact = price * impact_multiplier[product]
 
     st.session_state.purchases.append({
         "Date": datetime.now(),
         "Product": product,
         "Brand": brand,
         "Price": price,
-        "CO2 Impact": co2
+        "CO2 Impact": co2_impact
     })
 
     st.success("Purchase added successfully!")
@@ -100,9 +100,9 @@ if st.button("Add Purchase"):
     st.info(f"💡 Eco Tip: {random.choice(eco_tips)}")
 
 # ------------------------------------
-# Dashboard Section
+# Dashboard
 # ------------------------------------
-st.subheader("📊 Monthly Impact Dashboard")
+st.subheader("📊 Impact Dashboard")
 
 if st.session_state.purchases:
     df = pd.DataFrame(st.session_state.purchases)
@@ -116,9 +116,9 @@ if st.session_state.purchases:
 
     st.dataframe(df)
 
-    # --------------------------------
+    # ------------------------------
     # Badges
-    # --------------------------------
+    # ------------------------------
     st.subheader("🏅 Eco Badges")
 
     if total_impact < 200:
@@ -126,19 +126,19 @@ if st.session_state.purchases:
     elif total_impact < 400:
         st.info("👍 Conscious Shopper Badge")
     else:
-        st.warning("🚨 High Impact – Consider greener choices")
+        st.warning("🚨 High Impact – Consider greener alternatives")
 
-    # --------------------------------
+    # ------------------------------
     # Suggestions
-    # --------------------------------
+    # ------------------------------
     st.subheader("🌿 Greener Alternatives")
 
     last_product = df.iloc[-1]["Product"]
-    for alt in green_alternatives[last_product]:
-        st.write("•", alt)
+    for option in green_alternatives[last_product]:
+        st.write("•", option)
 
 else:
-    st.info("No purchases added yet. Start logging to see your impact!")
+    st.info("No purchases logged yet. Start adding items!")
 
 # ------------------------------------
 # Footer
