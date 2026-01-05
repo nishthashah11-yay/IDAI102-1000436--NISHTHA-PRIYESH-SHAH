@@ -3,18 +3,18 @@ import pandas as pd
 from datetime import datetime
 import random
 
-# ------------------------------------
+# ====================================
 # Page Configuration
-# ------------------------------------
+# ====================================
 st.set_page_config(
     page_title="ShopImpact – Conscious Shopping Dashboard",
     page_icon="🌱",
     layout="wide"
 )
 
-# ------------------------------------
+# ====================================
 # Data Structures
-# ------------------------------------
+# ====================================
 impact_multiplier = {
     "Clothing": 1.5,
     "Electronics": 3.0,
@@ -24,7 +24,7 @@ impact_multiplier = {
 }
 
 green_alternatives = {
-    "Clothing": ["Organic cotton brands", "Local handloom", "Second-hand clothes"],
+    "Clothing": ["Organic cotton brands", "Local handloom", "Second-hand clothing"],
     "Electronics": ["Energy Star products", "Refurbished electronics"],
     "Groceries": ["Local farmers market", "Organic groceries"],
     "Footwear": ["Recycled material shoes", "Vegan leather footwear"],
@@ -33,20 +33,20 @@ green_alternatives = {
 
 eco_tips = [
     "Buying second-hand greatly reduces carbon emissions.",
-    "Local products usually have a smaller carbon footprint.",
+    "Local products usually have a lower carbon footprint.",
     "Repairing items helps reduce waste.",
     "Eco-friendly choices protect future generations."
 ]
 
-# ------------------------------------
+# ====================================
 # Session State
-# ------------------------------------
+# ====================================
 if "purchases" not in st.session_state:
     st.session_state.purchases = []
 
-# ------------------------------------
-# Visual Reward (Cloud-safe)
-# ------------------------------------
+# ====================================
+# Eco Visual Reward (Cloud Safe)
+# ====================================
 def eco_reward():
     st.success("🌿 Eco-friendly choice!")
     st.markdown(
@@ -54,20 +54,20 @@ def eco_reward():
         unsafe_allow_html=True
     )
 
-# ------------------------------------
+# ====================================
 # Header
-# ------------------------------------
+# ====================================
 st.markdown(
     """
-    <h1 style='color:green;'>🌱 ShopImpact</h1>
+    <h1 style="color:green;">🌱 ShopImpact</h1>
     <h4>Track your shopping and reduce your environmental impact</h4>
     """,
     unsafe_allow_html=True
 )
 
-# ------------------------------------
+# ====================================
 # Input Section
-# ------------------------------------
+# ====================================
 st.subheader("🛒 Log a Purchase")
 
 col1, col2, col3 = st.columns(3)
@@ -99,9 +99,9 @@ if st.button("Add Purchase"):
 
     st.info(f"💡 Eco Tip: {random.choice(eco_tips)}")
 
-# ------------------------------------
+# ====================================
 # Dashboard
-# ------------------------------------
+# ====================================
 st.subheader("📊 Impact Dashboard")
 
 if st.session_state.purchases:
@@ -116,9 +116,9 @@ if st.session_state.purchases:
 
     st.dataframe(df)
 
-    # ------------------------------
+    # -------------------------------
     # Badges
-    # ------------------------------
+    # -------------------------------
     st.subheader("🏅 Eco Badges")
 
     if total_impact < 200:
@@ -126,23 +126,23 @@ if st.session_state.purchases:
     elif total_impact < 400:
         st.info("👍 Conscious Shopper Badge")
     else:
-        st.warning("🚨 High Impact – Consider greener alternatives")
+        st.warning("🚨 High Impact – Consider greener choices")
 
-    # ------------------------------
-    # Suggestions
-    # ------------------------------
+    # -------------------------------
+    # Greener Suggestions
+    # -------------------------------
     st.subheader("🌿 Greener Alternatives")
 
     last_product = df.iloc[-1]["Product"]
-    for option in green_alternatives[last_product]:
-        st.write("•", option)
+    for alt in green_alternatives[last_product]:
+        st.write("•", alt)
 
 else:
-    st.info("No purchases logged yet. Start adding items!")
+    st.info("No purchases logged yet. Start adding items to see your impact.")
 
-# ------------------------------------
+# ====================================
 # Footer
-# ------------------------------------
+# ====================================
 st.markdown(
     "<hr><p style='text-align:center;'>Made with 💚 for sustainable living</p>",
     unsafe_allow_html=True
