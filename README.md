@@ -73,7 +73,7 @@ ShopImpact/
 ## ⚙️ Installation & Running Locally
 
 1. Clone the repository  
-   git clone [https://github.com/yourusername/your-repository-name.git](https://github.com/nishthashah11-yay/IDAI102-1000436--NISHTHA-PRIYESH-SHAH)  
+   git clone https://github.com/nishthashah11-yay/IDAI102-1000436--NISHTHA-PRIYESH-SHAH
    cd your-repository-name  
 
 2. Install dependencies  
