@@ -73,8 +73,7 @@ ShopImpact/
 ## ⚙️ Installation & Running Locally
 
 1. Clone the repository  
-   git clone https://github.com/nishthashah11-yay/IDAI102-1000436--NISHTHA-PRIYESH-SHAH
-   cd your-repository-name  
+   git clone https://github.com/nishthashah11-yay/IDAI102-1000436--NISHTHA-PRIYESH-SHAH  
 
 2. Install dependencies  
    pip install -r requirements.txt  
