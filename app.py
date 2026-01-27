@@ -117,20 +117,28 @@ if not df.empty:
 st.subheader("🏅 Achievements")
 
 earned = []
-if total_impact < 500:
-    earned.append("Eco Saver")
-if (df["Category"] == "Second-hand").sum() > len(df)/2:
-    earned.append("Conscious Consumer")
-if st.session_state.streak >= 5:
-    earned.append("Sustainability Streaker")
-if len(df) > 5 and df["Impact"].iloc[-1] < df["Impact"].iloc[0]:
-    earned.append("Green Champion")
+
+if not df.empty:
+    if total_impact < 500:
+        earned.append("Eco Saver")
+
+    if "Category" in df.columns:
+        if (df["Category"] == "Second-hand").sum() > len(df) / 2:
+            earned.append("Conscious Consumer")
+
+    if st.session_state.streak >= 5:
+        earned.append("Sustainability Streaker")
+
+    if len(df) > 5 and "Impact" in df.columns:
+        if df["Impact"].iloc[-1] < df["Impact"].iloc[0]:
+            earned.append("Green Champion")
 
 for badge in BADGES:
     if badge in earned:
         st.success(f"🏆 {badge}")
     else:
         st.info(f"🔒 {badge}")
+
 
 # ---------------- HISTORY ----------------
 if not df.empty:
