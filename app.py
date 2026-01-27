@@ -2,8 +2,7 @@ import streamlit as st
 from datetime import datetime
 import random
 import pandas as pd
-import turtle
-from PIL import Image
+from PIL import Image, ImageDraw
 import os
 
 # ---------------- PAGE CONFIG ----------------
@@ -58,35 +57,18 @@ QUOTES = [
 
 GREEN_REDUCTION_FACTOR = 0.35
 
-# ---------------- TURTLE DRAWING ----------------
+# ---------------- ECO BADGE (PIL) ----------------
 def draw_leaf():
-    t = turtle.Turtle()
-    screen = turtle.Screen()
-    screen.bgcolor("#e8f5e9")
-    t.color("green")
-    t.speed(0)
+    img = Image.new("RGBA", (300, 300), (232, 245, 233, 255))
+    draw = ImageDraw.Draw(img)
 
-    t.begin_fill()
-    t.circle(100, 60)
-    t.left(120)
-    t.circle(100, 60)
-    t.end_fill()
+    draw.ellipse((80, 40, 220, 200), fill=(76, 175, 80, 255))
+    draw.ellipse((100, 80, 200, 260), fill=(56, 142, 60, 255))
+    draw.line((150, 200, 150, 280), fill=(121, 85, 72, 255), width=6)
 
-    t.penup()
-    t.goto(0, -120)
-    t.pendown()
-    t.color("brown")
-    t.setheading(-90)
-    t.forward(80)
-
-    canvas = screen.getcanvas()
-    canvas.postscript(file="leaf.ps")
-    turtle.bye()
-
-    img = Image.open("leaf.ps")
     img.save("leaf.png")
 
-def show_turtle():
+def show_badge():
     if not os.path.exists("leaf.png"):
         draw_leaf()
     st.image("leaf.png", caption="🌱 Eco Badge Unlocked!", width=200)
@@ -128,7 +110,7 @@ if submit:
     if product == "Second-hand":
         st.session_state.streak += 1
         st.success("🌱 Great choice! You went eco-friendly!")
-        show_turtle()
+        show_badge()
     else:
         st.session_state.streak = max(0, st.session_state.streak - 1)
 
@@ -183,4 +165,4 @@ if st.session_state.purchases:
     df = pd.DataFrame(st.session_state.purchases)
     st.dataframe(df)
 
-st.caption("🌱 ShopImpact – Making Sustainability Fun & Visual with Python + Streamlit + Turtle")
+st.caption("🌱 ShopImpact – Making Sustainability Fun & Visual with Python + Streamlit (Cloud Safe)")
