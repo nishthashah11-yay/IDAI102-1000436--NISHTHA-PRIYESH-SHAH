@@ -1,4 +1,13 @@
 streamlit
 pandas
 matplotlib
-
+datetime
+random
+time
+io
+base64
+PIL
+numpy
+turtle
+tempfile
+os
