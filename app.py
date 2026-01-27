@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import turtle
 import tempfile
+import os
 
 
 st.set_page_config(page_title="🌱 EcoImpact Pro", layout="wide", initial_sidebar_state="expanded")
