@@ -8,7 +8,7 @@ import base64
 from PIL import Image, ImageDraw, ImageFont
 import matplotlib.pyplot as plt
 import numpy as np
-import turtle
+
 import tempfile
 import os
 
