@@ -11,6 +11,92 @@ st.set_page_config(
     page_icon="🌱",
     layout="wide"
 )
+# ---------------- CUSTOM STYLES ----------------
+st.markdown("""
+<style>
+/* Main background */
+body, .stApp {
+    background-color: #e8f5e9;  /* light green */
+    color: #1b5e20;             /* dark green text */
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: #a5d6a7; /* pastel green */
+    color: #1b5e20;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #2e7d32;  /* dark green for headers */
+}
+
+/* Buttons */
+.stButton > button {
+    background-color: #66bb6a;  /* green button */
+    color: white;
+    border-radius: 12px;
+    padding: 0.5em 1em;
+    font-weight: bold;
+}
+
+/* Hover effect for buttons */
+.stButton > button:hover {
+    background-color: #43a047; /* darker green */
+    color: white;
+}
+
+/* Slider */
+.css-1aumxhk .stSlider > div > div:nth-child(1) {
+    background-color: #66bb6a !important;
+}
+
+/* Progress bar */
+.css-1v3fvcr .stProgress > div > div > div {
+    background-color: #43a047 !important;
+}
+
+/* Info box */
+.stInfo {
+    background-color: #c8e6c9 !important;
+    color: #1b5e20 !important;
+}
+
+/* Success box */
+.stSuccess {
+    background-color: #81c784 !important;
+    color: #1b5e20 !important;
+}
+
+/* Error box */
+.stError {
+    background-color: #ef9a9a !important;
+    color: white !important;
+}
+
+/* Metrics */
+[data-testid="stMetricValue"] {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* Dataframe table header */
+.css-1d391kg th {
+    background-color: #a5d6a7;
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+/* Download button */
+.stDownloadButton > button {
+    background-color: #66bb6a;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 # Initialize session state
 if 'purchases' not in st.session_state:
