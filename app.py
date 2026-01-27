@@ -7,7 +7,7 @@ import base64
 from PIL import Image, ImageDraw, ImageFont
 import matplotlib.pyplot as plt
 import numpy as np
-
+import random
 import tempfile
 import os
 
