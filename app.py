@@ -16,10 +16,7 @@ IMPACT = {
     "Second-hand": 0.05
 }
 
-XP_RULES = {
-    "log": 10,
-    "low_impact": 10
-}
+XP_RULES = {"log": 10, "low_impact": 10}
 
 LEVELS = {
     1: (0, 99),
@@ -35,6 +32,13 @@ BADGES = {
     "Green Champion": "CO₂ reduced over time"
 }
 
+ECO_TIPS = [
+    "Buy second-hand to save up to 80% emissions 🌱",
+    "Repair before replacing 🛠",
+    "Choose local food to cut transport pollution 🚜",
+    "Avoid excess packaging 📦"
+]
+
 # ---------------- SESSION ----------------
 if "data" not in st.session_state:
     st.session_state.data = []
@@ -42,6 +46,8 @@ if "xp" not in st.session_state:
     st.session_state.xp = 0
 if "streak" not in st.session_state:
     st.session_state.streak = 0
+if "goal" not in st.session_state:
+    st.session_state.goal = 1000
 
 # ---------------- FUNCTIONS ----------------
 def get_level(xp):
@@ -66,7 +72,7 @@ def show_badge():
     st.image("badge.png", width=120)
 
 # ---------------- UI ----------------
-st.title("🌱 ShopImpact – Gamified Conscious Shopping")
+st.title("🌱 ShopImpact – Gamified Conscious Shopping Dashboard")
 
 with st.form("log"):
     cat = st.selectbox("Product Type", IMPACT.keys())
@@ -87,6 +93,7 @@ if submit:
     })
 
     st.session_state.xp += XP_RULES["log"]
+
     if cat == "Second-hand":
         st.session_state.xp += XP_RULES["low_impact"]
         st.session_state.streak += 1
@@ -94,6 +101,8 @@ if submit:
         show_badge()
     else:
         st.session_state.streak = 0
+
+    st.info(random.choice(ECO_TIPS))
 
 # ---------------- DASHBOARD ----------------
 df = pd.DataFrame(st.session_state.data)
@@ -106,6 +115,16 @@ c2.metric("Level", level)
 c3.metric("Total CO₂", f"{total_impact:.2f}")
 c4.metric("Streak", st.session_state.streak)
 
+# Progress to next level
+low, high = LEVELS[level]
+progress = (st.session_state.xp - low) / (high - low)
+st.progress(min(1.0, progress))
+
+# ---------------- ECO GOAL ----------------
+st.subheader("🎯 Monthly CO₂ Goal")
+st.session_state.goal = st.slider("Set your CO₂ limit", 100, 5000, st.session_state.goal)
+st.metric("Remaining Budget", max(0, st.session_state.goal - total_impact))
+
 # ---------------- WEEKLY CHART ----------------
 if not df.empty:
     df["Date"] = pd.to_datetime(df["Date"])
@@ -113,25 +132,25 @@ if not df.empty:
     st.subheader("📈 Weekly Impact")
     st.bar_chart(weekly)
 
+# ---------------- GREEN SIMULATOR ----------------
+st.subheader("🌍 Green Future Simulator")
+adoption = st.slider("Shift to green alternatives (%)", 0, 100, 40)
+reduction = total_impact * (adoption / 100) * 0.35
+st.success(f"Potential CO₂ reduction: {reduction:.2f}")
+
 # ---------------- BADGES ----------------
 st.subheader("🏅 Achievements")
-
 earned = []
 
 if not df.empty:
     if total_impact < 500:
         earned.append("Eco Saver")
-
-    if "Category" in df.columns:
-        if (df["Category"] == "Second-hand").sum() > len(df) / 2:
-            earned.append("Conscious Consumer")
-
+    if (df["Category"] == "Second-hand").sum() > len(df) / 2:
+        earned.append("Conscious Consumer")
     if st.session_state.streak >= 5:
         earned.append("Sustainability Streaker")
-
-    if len(df) > 5 and "Impact" in df.columns:
-        if df["Impact"].iloc[-1] < df["Impact"].iloc[0]:
-            earned.append("Green Champion")
+    if len(df) > 5 and df["Impact"].iloc[-1] < df["Impact"].iloc[0]:
+        earned.append("Green Champion")
 
 for badge in BADGES:
     if badge in earned:
@@ -139,6 +158,9 @@ for badge in BADGES:
     else:
         st.info(f"🔒 {badge}")
 
+# ---------------- DOWNLOAD ----------------
+if not df.empty:
+    st.download_button("📥 Download Purchase History (CSV)", df.to_csv(index=False), "shopimpact_history.csv")
 
 # ---------------- HISTORY ----------------
 if not df.empty:
