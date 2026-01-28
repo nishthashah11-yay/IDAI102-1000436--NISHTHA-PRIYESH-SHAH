@@ -1,217 +1,198 @@
-#  ShopImpact – Gamified Conscious Shopping Dashboard
+ShopImpact – Conscious Shopping & CO₂ Awareness System
 
-##  Project Overview  
-ShopImpact is an interactive **Python + Streamlit web application** that helps users understand and reflect on the **environmental impact of their shopping habits** through visualization and gamification.  
+Project Overview
 
-By logging everyday purchases, users can instantly view their estimated CO₂ footprint, earn experience points (XP), unlock achievement badges, track eco-streaks, and explore how choosing greener alternatives can reduce their environmental impact.
+This platform is a web-based application created with Streamlit that guides individuals toward environmentally responsible buying by recording consumption patterns and computing carbon output.
 
-The project promotes **conscious consumerism** in a positive, engaging, and non-judgmental way.
+Every item entered by a user is transformed into measurable sustainability indicators through instant processing, visual panels, and reward-based mechanics. The focus remains on steady improvement rather than fault-based pressure, promoting mindful choices through encouragement.
 
----
+The system illustrates the full development cycle of a Python-driven interactive product, covering algorithm construction, session storage, interface styling, graphical reporting, and online hosting. Its structure makes it ideal for coursework evaluation, innovation contests, and practical demonstrations.
 
-##  Problem Statement  
-Most consumers are unaware of the environmental cost of everyday products, and sustainability data is often difficult to interpret.
+Problem Statement
 
-ShopImpact addresses this by:
-- Making environmental impact **visible and measurable**
-- Encouraging **small, sustainable behavior changes**
-- Turning eco-friendly actions into a **rewarding and motivating experience**
+Current shoppers encounter multiple obstacles when attempting to live sustainably:
 
----
+Ecological consequences remain hidden during transactions
 
-##  Target Users  
-- Students and young adults  
-- Environmentally conscious families  
-- Beginners learning Python and data-driven applications  
-- Anyone interested in reducing their carbon footprint  
+Green habits lack motivation and response systems
 
----
+Environmental statistics appear complex and difficult to interpret
 
-##  Key Features  
+The solution provides:
 
-###  Core Functionality  
-- Log purchases with **product type, brand, price, and date**  
-- **Real-time CO₂ impact calculation** using category-based multipliers  
-- Persistent purchase history using session state  
+Conversion of buying activity into readable carbon values
 
-###  Gamification System  
-- **XP-based level system** (Level 1 to Level 4)  
-- **Eco streak tracking** for consecutive sustainable choices  
-- **Achievement badges**:  
-  -  Eco Saver – Low total CO₂ impact  
-  -  Conscious Consumer – Majority low-impact purchases  
-  -  Sustainability Streaker – 5-day eco streak  
-  -  Green Champion – Impact reduced over time  
-- Visual **eco badge generated using Python (PIL)**  
-- Progress bar showing advancement toward the next level  
+Positive reinforcement using achievement-based mechanics
 
-###  Visual Dashboard  
-- Total CO₂ impact  
-- Current XP and Level  
-- Streak counter  
-- Weekly CO₂ impact bar chart  
-- Purchase history table  
+Clear presentation through a simplified digital layout
 
-###  Sustainability Tools  
-- **Monthly Eco Goal Tracker** with remaining carbon budget  
-- **Green Future Simulator** to estimate CO₂ reduction if users switch to greener alternatives  
-- Random **eco tips** for positive reinforcement  
-- CSV download of purchase history  
+System Integration & Architecture
+Data Handling and State Management
 
----
+Application memory relies on Streamlit’s session storage to preserve:
 
-##  Python Concepts Used  
-- Lists and dictionaries for structured data storage  
-- Functions and conditional logic for calculations and rewards  
-- Session state for persistent user interaction  
-- Date and time handling for streaks and weekly analysis  
-- Data analysis using Pandas  
-- Image generation using Pillow (PIL)  
-- Data visualization using Streamlit charts  
+Transaction records
 
----
+Daily emission totals
 
-##  Technologies Used  
-- **Python 3**  
-- **Streamlit** – interactive web interface  
-- **Pandas** – data handling and charts  
-- **Pillow (PIL)** – badge graphics  
-- **Datetime module** – time-based analytics  
+Expense monitoring
 
----
+Sustainable action counts, continuity tracking, and achievement levels
 
-##  Project Structure  
+Efficient in-memory collections enable rapid grouping and computation.
 
-```text
-ShopImpact/
-│
-├── app.py              # Main Streamlit application
-├── requirements.txt    # Python dependencies
-└── README.md           # Project documentation
-```
+Logic and Calculations
 
-#  Project Development Stages
+Emission estimation relies on category-specific intensity factors
 
-###  Stage 1: Planning & Design
-The planning phase focused on identifying target users, pain points, and key features. A mind map was created to visualize user needs and interactions, followed by low-fidelity wireframes to establish layout, input flow, and dashboard structure.
+Environment-friendly selections automatically apply a percentage reduction
 
-![Mindmap](assets/stage1/mindmap.png)  
-*Figure 1: Project Mindmap*
+Independent Python modules manage:
 
-![Wireframe](assets/stage1/wireframe.png)  
-*Figure 2: Low-fidelity UI Wireframe*
+Entry registration
 
-###  Stage 2: Build the Python Logic
-Designed a list of dictionaries to store purchase data
-Applied category-based CO₂ multipliers for environmental impact calculation
-Built modular functions for:
-Impact calculation
-XP and level progression
-Badge unlocking
-Streak tracking
-Integrated session state for persistent user interaction across app reloads
+Footprint computation
 
-###  Stage 3: Interactive Interface
-The interface was refined iteratively based on usability testing and visual clarity.
-Screenshots below show the finalized interface used for deployment.
+Continuity monitoring
 
-#### 📸 Interface Screenshots (Final UI)
+Achievement activation
 
-| Dashboard Overview | Purchase Logging |
-|-------------------|------------------|
-| ![Dashboard](assets/screenshots/ui_dashboard.png) | ![Purchase](assets/screenshots/ui_purchase.png) |
+Periodic reporting
 
-| Gamification Panel | Badge System |
-|-------------------|--------------|
-| ![Gamification](assets/screenshots/ui_gamification.png) | ![Badges](assets/screenshots/ui_badges.png) |
+User Interface
 
-| Weekly Analytics | Turtle Avatar |
-|-----------------|---------------|
-| ![Analytics](assets/screenshots/ui_weekly.png) | ![Turtle](assets/screenshots/ui_turtle.png) |
+Navigation is organized through multiple panels including:
 
-**Note:** The Eco Feedback Panel persistently displays greener alternatives and eco tips based on the user’s most recent purchase, ensuring alignment between the planned wireframe and final interface.
+Overview screen
 
-*Figure 3: Final ShopImpact interface showing dashboard metrics, purchase logging, gamification elements, badge system, weekly analytics, and the symbolic turtle avatar.*
+Statistical review
 
-###  Stage 4: Testing & Gamification
+Achievement gallery
 
-Testing was conducted using 15 unique purchase scenarios to validate badge unlocking rules, point accumulation accuracy, and overall dashboard calculations.
+Inspiration and insight section
 
-![Testing](assets/stage4/testing_1.png)  
+Configuration panel
 
-During testing, the badge logic was refined to ensure rewards were based on environmental efficiency and improvement rather than purchase quantity, aligning the gamification system with sustainability principles.
+Visual styling is applied using embedded style rules that define:
 
-| Before | After |
-|-------------------|------------------|
-| ![Badges](assets/stage4/badges.png)  | ![Badges](assets/stage4/badges_after.png)  |
+Bright and dim display modes
 
-In addition to functional testing, informal usability testing was carried out with peers to assess clarity of navigation, readability of metrics, and overall user experience. Based on this feedback, badge visuals were simplified for better recognition, and a weekly impact chart was introduced to improve trend visibility and user understanding.
+Color emphasis
 
-###  Stage 5: Deployment
-The finalized application was deployed on **Streamlit Cloud**, ensuring accessibility for users across different devices. Dependencies were managed via `requirements.txt` to guarantee a consistent runtime environment.
+Layout clarity and nature-inspired appearance
 
+Visualization and Export
 
+Tabular processing is handled through structured data frames
 
-Run the application
+Graphical components illustrate emission movement patterns
 
+Downloadable reports allow external evaluation and documentation
+
+Deployment
+Local Deployment
+git clone <repository-url>
+cd ShopImpact
+pip install -r requirements.txt
 streamlit run app.py
 
- Deployment
 
-The application is deployed using Streamlit Cloud:
+Accessible through: http://localhost:8501
 
-Push the project to GitHub
+Streamlit Cloud Deployment
 
-Visit https://streamlit.io/cloud
+Upload files to a version-control platform
 
-Click New App
+Sign into the hosting dashboard
 
-Connect your repository
+Select Create Application
 
-Select app.py as the main file
+Configure:
 
-Click Deploy
+Source project: ShopImpact
 
- Testing
+Entry script: app.py
 
-Logged 15+ purchases across all categories
+Publish for online access
 
-Verified XP, levels, and badge unlocking logic
+Development Stages
+Stage 1: Planning & Design
 
-Tested eco-streak increment and reset
+User journeys, functional goals, and visual identity were outlined through preliminary sketches and natural color themes.
 
-Confirmed weekly chart accuracy
+Stage 2: Python Logic
 
-Validated eco-goal and green-simulator calculations
+Core computational units were programmed to:
 
-Ensured CSV export and dashboard stability
+Capture user entries
 
- Ethical & Social Impact
+Estimate emissions
 
-CO₂ values are simplified estimates for educational purposes
+Measure sustainable behavior
 
-No fear-based or guilt-driven messaging
+Control reward progression
 
-Rewards are based on better choices, not more consumption
+Stage 3: Interactive Interface
 
-Encourages responsible and mindful shopping habits
+A minimal, friendly layout was constructed to ensure smooth interaction, real-time feedback, and aesthetic consistency.
 
- Student Details
+Stage 4: Testing & Gamification
 
-Student Name: Nishtha Priyesh Shah
+Simulated datasets verified:
 
-Student ID: 1000436
+Numerical precision
 
-Course: Artificial Intelligence
+Progress continuity
 
-Subject: Python Programming
+Reward eligibility
+Game elements were adjusted to maintain long-term interest.
 
-Assessment Type: Summative Assessment
+Stage 5: Deployment
 
-Institution: Aspee Nutan Academy
+Final configuration ensured compatibility, stability, and web availability for demonstration and assessment.
 
- Conclusion
+Key Features
 
-ShopImpact demonstrates how Python can be used to design a complete, real-world, interactive system that combines data analysis, visualization, and gamification for social good. The project highlights the full development cycle—from problem identification and logic design to deployment—while promoting sustainability through positive digital engagement.
+Smart transaction recording
 
-Track • Reflect • Improve • Shop Responsibly 🌍
+Instant carbon estimation
+
+Sustainability performance index
+
+Reward tiers and progress streaks
+
+Periodic environmental summaries
+
+Downloadable data sheets
+
+Ethical and Social Impact
+
+This system supports:
+
+Responsible purchasing culture
+
+Climate literacy
+
+Habit-building through encouragement
+
+Constructive engagement with ecological responsibility
+
+Future Enhancements
+
+Extended timeline visualizations
+
+Manufacturer environmental scoring
+
+Alternative product recommendations
+
+Social ranking systems
+
+Printable environmental reports
+
+Final Reflection
+
+This project illustrates how digital systems, analytical models, and user-centered design can reveal hidden environmental costs and convert them into actionable knowledge. By integrating Python automation, visualization tools, and motivational mechanics, the platform empowers learners and consumers to adopt informed, sustainable lifestyles.
+
+Understanding leads to choice, and choice leads to change. 🌍
+
+ChatGPT can make mistakes. Check important info. See Cookie Preferences.
