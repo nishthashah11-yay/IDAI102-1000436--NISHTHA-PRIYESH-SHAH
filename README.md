@@ -71,7 +71,7 @@ Visual styling includes:
 
 ### Local Deployment  
 
-```bash
+
 git clone <repository-url>
 cd ShopImpact
 pip install -r requirements.txt
