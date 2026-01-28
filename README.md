@@ -1,7 +1,11 @@
 ## Student Name: Nishtha Priyesh Shah
+
 ## Student ID: 1000436
+
 ## Course: Artificial Intelligence | Python Programming
+
 ## Assessment Type: Summative Assessment
+
 ## Project Title: Design and Deploy an Interactive Python Application
 
 # ShopImpact – Conscious Shopping & CO₂ Awareness System  
