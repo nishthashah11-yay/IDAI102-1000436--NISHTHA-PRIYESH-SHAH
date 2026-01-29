@@ -433,7 +433,7 @@ with col1:
         value="Moderate Impact"
     )
     
-    price = st.number_input("Purchase Price ($)", min_value=0.0, value=50.0, step=5.0, format="%.2f")
+    price = st.number_input("Purchase Price (Rs)", min_value=0.0, value=50.0, step=5.0, format="%.2f")
     
     brand = st.text_input("Brand / Product Name", placeholder="e.g., Brand X T-Shirt")
     
@@ -600,7 +600,7 @@ with col2:
         with col_metrics1:
             st.markdown('<div style="text-align: center;">', unsafe_allow_html=True)
             st.markdown('<div style="font-weight: 600; color: #6B7280; margin-bottom: 5px;">Total Spent</div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="impact-metric">${total_spent:.0f}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="impact-metric">{total_spent:.0f}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
         with col_metrics2:
             st.markdown('<div style="text-align: center;">', unsafe_allow_html=True)
@@ -642,7 +642,7 @@ with col2:
         recent['timestamp'] = recent['timestamp'].dt.strftime('%m/%d %H:%M')
         
         st.dataframe(
-            recent.style.format({'price': '${:.2f}', 'co2_kg': '{:.1f} kg'})
+            recent.style.format({'price': '{:.2f}', 'co2_kg': '{:.1f} kg'})
             .apply(lambda x: ['color: #059669' if x['eco_level'] in ['Eco-Friendly', 'Carbon Neutral'] else 'color: #EA580C' for _ in x], axis=1),
             use_container_width=True,
             height=250
