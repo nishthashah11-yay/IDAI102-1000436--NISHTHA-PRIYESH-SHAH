@@ -419,7 +419,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    st.markdown('<div class="glass-card input-card">', unsafe_allow_html=True)
+   
     st.markdown('<div class="card-title">➕ Log Your Purchase</div>', unsafe_allow_html=True)
     
     category = st.selectbox(
@@ -545,7 +545,8 @@ with col1:
     
     st.markdown('</div>', unsafe_allow_html=True)
     
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+
+    
     st.markdown('<div class="card-title">🏆 Your Achievements</div>', unsafe_allow_html=True)
     
     if st.session_state.achievements:
@@ -582,7 +583,7 @@ with col1:
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    
     st.markdown('<div class="card-title">📊 Impact Dashboard</div>', unsafe_allow_html=True)
     
     if st.session_state.purchase_log:
@@ -662,7 +663,7 @@ with col2:
         ''', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
     
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+  
     st.markdown('<div class="card-title">🌱 Sustainable Alternatives</div>', unsafe_allow_html=True)
     
     categories = ["Clothing", "Electronics", "Food & Groceries", "Home Goods", "Personal Care"]
