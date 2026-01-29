@@ -750,19 +750,48 @@ if st.session_state.purchase_log:
         st.session_state.achievements.append("Green Pioneer")
         st.toast("🏆 Achievement Unlocked: Green Pioneer!", icon="🌟")
 
-st.markdown("""
-<div style="text-align: center; margin-top: 3rem; padding: 2rem; 
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
-            border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.2);">
-    <p style="color: #374151; font-size: 1rem; margin: 0;">
-        <span style="font-weight: 700; color: #059669;">ShopImpact Pro</span> • 
-        Designed with ♻️ for a Sustainable Future
-    </p>
-    <p style="color: #6B7280; font-size: 0.9rem; margin-top: 0.5rem;">
-        Track your impact • Make better choices • Build a greener tomorrow
-    </p>
-</div>
-""", unsafe_allow_html=True)
 
-def hash(text):
-    return sum(ord(c) for c in text)
+st.markdown('<div class="card-title">📝 User Feedback</div>', unsafe_allow_html=True)
+
+with st.form("feedback_form"):
+    name = st.text_input("Your Name (Optional)")
+    email = st.text_input("Email (Optional)")
+    
+    experience = st.radio(
+        "How was your overall experience with ShopImpact?",
+        ["Excellent 🌟", "Good 🙂", "Average 😐", "Needs Improvement 😕"]
+    )
+    
+    favorite_feature = st.selectbox(
+        "Which feature did you like the most?",
+        [
+            "Purchase Impact Calculator",
+            "Impact Dashboard",
+            "Achievements & Badges",
+            "Sustainable Alternatives",
+            "Visual Impact Studio",
+            "Daily Eco Inspiration"
+        ]
+    )
+    
+    usefulness = st.slider(
+        "How useful is this app for promoting sustainable shopping?",
+        1, 5, 3,
+        help="1 = Not useful, 5 = Extremely useful"
+    )
+    
+    suggestions = st.text_area(
+        "Any suggestions to improve ShopImpact?",
+        placeholder="Write your ideas here..."
+    )
+    
+    recommend = st.checkbox("I would recommend this app to others 🌍")
+    
+    submitted = st.form_submit_button("Submit Feedback")
+
+    if submitted:
+        st.success("🙏 Thank you for your feedback! Your response has been recorded.")
+        st.balloons()
+
+st.markdown('</div>', unsafe_allow_html=True)
+
