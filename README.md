@@ -142,6 +142,8 @@ streamlit run app.py
 <img width="935" height="630" alt="Screenshot 2026-01-28 224658" src="https://github.com/user-attachments/assets/aa97e392-7f96-4c0b-9a36-f2b2f90f660e" />
 <img width="882" height="769" alt="Screenshot 2026-01-28 224639" src="https://github.com/user-attachments/assets/3a0e9f0a-704f-4e26-ac51-ce62ff2a960d" />
 <img width="1851" height="837" alt="Screenshot 2026-01-28 224216" src="https://github.com/user-attachments/assets/829f642b-a4dc-4291-adee-a210478ee450" />
+<img width="1024" height="1024" alt="Gemini_Generated_Image_mtx6yvmtx6yvmtx6" src="https://github.com/user-attachments/assets/57a65d5e-8957-4ee7-a504-d9d60746bab0" />
+<img width="1024" height="1024" alt="Gemini_Generated_Image_nr92fnr92fnr92fn" src="https://github.com/user-attachments/assets/6d6e3de8-344a-4238-8efe-f7b229d3d8e7" />
 
 
 ## Key Features  
