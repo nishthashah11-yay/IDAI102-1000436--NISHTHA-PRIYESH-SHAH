@@ -720,55 +720,6 @@ with col2:
         ''', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-st.markdown('<div class="card-title" style="text-align: center;">🌍 Visual Impact Studio</div>', unsafe_allow_html=True)
-
-graph_col1, graph_col2, graph_col3 = st.columns(3)
-
-with graph_col1:
-    st.markdown('<div class="graphic-container">', unsafe_allow_html=True)
-    st.markdown('<div style="font-weight: 600; color: #059669; margin-bottom: 1rem;">Eco Leaf Visualization</div>', unsafe_allow_html=True)
-    if st.button("Generate Leaf Animation", key="leaf_btn"):
-        st.markdown('''
-        <div class="leaf-animation">
-            <svg width="150" height="150">
-                <path d="M75,25 Q95,35 95,55 Q95,75 75,85 Q55,75 55,55 Q55,35 75,25" 
-                      fill="#10B981" stroke="#059669" stroke-width="2.5"/>
-                <line x1="75" y1="45" x2="75" y2="15" stroke="#A7F3D0" stroke-width="5" stroke-linecap="round"/>
-                <circle cx="80" cy="40" r="4" fill="#FBBF24"/>
-                <circle cx="60" cy="60" r="4" fill="#FBBF24"/>
-                <circle cx="85" cy="70" r="4" fill="#FBBF24"/>
-                <circle cx="65" cy="30" r="4" fill="#FBBF24"/>
-            </svg>
-        </div>
-        <p style="margin-top: 1rem; color: #047857; font-weight: 500;">Each leaf represents an eco-friendly choice</p>
-        ''', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-with graph_col2:
-    st.markdown('<div class="graphic-container">', unsafe_allow_html=True)
-    st.markdown('<div style="font-weight: 600; color: #EA580C; margin-bottom: 1rem;">Carbon Footprint</div>', unsafe_allow_html=True)
-    if st.button("Show Footprint", key="foot_btn"):
-        st.markdown('''
-        <div class="footprint-animation">
-            <svg width="150" height="150">
-                <circle cx="75" cy="75" r="35" fill="#F97316" stroke="#EA580C" stroke-width="3"/>
-                <circle cx="100" cy="50" r="18" fill="#F97316" stroke="#EA580C" stroke-width="2"/>
-                <circle cx="50" cy="50" r="18" fill="#F97316" stroke="#EA580C" stroke-width="2"/>
-                <circle cx="105" cy="85" r="18" fill="#F97316" stroke="#EA580C" stroke-width="2"/>
-                <circle cx="45" cy="85" r="18" fill="#F97316" stroke="#EA580C" stroke-width="2"/>
-                <line x1="80" y1="80" x2="95" y2="95" stroke="#EA580C" stroke-width="2"/>
-                <line x1="70" y1="80" x2="55" y2="95" stroke="#EA580C" stroke-width="2"/>
-            </svg>
-        </div>
-        <p style="margin-top: 1rem; color: #9A3412; font-weight: 500;">Visual representation of environmental impact</p>
-        ''', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-
-st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown('<div class="glass-card">', unsafe_allow_html=True)
 st.markdown('<div class="card-title">💭 Daily Eco Inspiration</div>', unsafe_allow_html=True)
 
 inspirations = [
