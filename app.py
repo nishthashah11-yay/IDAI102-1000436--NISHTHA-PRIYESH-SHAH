@@ -35,7 +35,12 @@ st.markdown("""
 }
 
 body {
-    background: linear-gradient(135deg, #F0F9FF 0%, #F0FFF4 100%);
+    background: linear-gradient(135deg,
+        #E0F2FE 0%,
+        #DCFCE7 25%,
+        #FEF9C3 50%,
+        #FFE4E6 75%,
+        #ECFEFF 100%);
     background-attachment: fixed;
     margin: 0;
     padding: 0;
@@ -760,30 +765,6 @@ with graph_col2:
         ''', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-with graph_col3:
-    st.markdown('<div class="graphic-container">', unsafe_allow_html=True)
-    st.markdown('<div style="font-weight: 600; color: #3B82F6; margin-bottom: 1rem;">Achievement Badge</div>', unsafe_allow_html=True)
-    badge_type = st.radio("Select Badge Type", ["Eco Warrior", "Carbon Saver", "Green Pioneer"], horizontal=True)
-    if st.button("Create Badge", key="badge_btn"):
-        st.markdown(f'''
-        <div class="badge-animation">
-            <svg width="150" height="150">
-                <circle cx="75" cy="75" r="50" fill="url(#badgeGrad)" stroke="#3B82F6" stroke-width="4"/>
-                <text x="75" y="85" text-anchor="middle" font-size="36" fill="white" font-weight="bold">
-                    {'🌿' if badge_type == "Eco Warrior" else '💨' if badge_type == "Carbon Saver" else '⭐'}
-                </text>
-                <defs>
-                    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#10B981;stop-opacity:1"/>
-                        <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:1"/>
-                        <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
-        <p style="margin-top: 1rem; color: #1D4ED8; font-weight: 500;">{badge_type} Badge Created!</p>
-        ''', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
