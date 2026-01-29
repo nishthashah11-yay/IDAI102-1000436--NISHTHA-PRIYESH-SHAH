@@ -133,6 +133,13 @@ streamlit run app.py
 - Public accessibility for evaluation  
 
 ---
+### Visuals
+<img width="1783" height="247" alt="Screenshot 2026-01-28 224747" src="https://github.com/user-attachments/assets/886bc495-bca1-4a97-a72f-5b423609ff25" />
+<img width="891" height="492" alt="Screenshot 2026-01-28 224736" src="https://github.com/user-attachments/assets/ddd80c33-c50d-4069-99bf-d7a5e3b0f72d" />
+<img width="935" height="630" alt="Screenshot 2026-01-28 224658" src="https://github.com/user-attachments/assets/aa97e392-7f96-4c0b-9a36-f2b2f90f660e" />
+<img width="882" height="769" alt="Screenshot 2026-01-28 224639" src="https://github.com/user-attachments/assets/3a0e9f0a-704f-4e26-ac51-ce62ff2a960d" />
+<img width="1851" height="837" alt="Screenshot 2026-01-28 224216" src="https://github.com/user-attachments/assets/829f642b-a4dc-4291-adee-a210478ee450" />
+
 
 ## Key Features  
 
