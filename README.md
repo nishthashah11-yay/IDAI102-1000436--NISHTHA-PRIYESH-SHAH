@@ -8,6 +8,9 @@
 
 ## Project Title: Design and Deploy an Interactive Python Application
 
+## Live Application Link 
+https://idai102-1000436--nishtha-priyesh-shah-n8qpzifjdsedhupcw3whas.streamlit.app/
+
 # ShopImpact – Conscious Shopping & CO₂ Awareness System  
 
 ## Project Overview  
